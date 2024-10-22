@@ -117,7 +117,7 @@ class _LandingPageState extends State<LandingPage> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              'Estudia la carrear que tu eliges .',
+              'Estudia la carrera que eliges.',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16),
             ),
@@ -128,18 +128,33 @@ class _LandingPageState extends State<LandingPage> {
   }
 
   Widget _buildSearchPage() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.search, size: 100, color: Colors.blue),
-          SizedBox(height: 20),
-          Text(
-            'Página de Búsqueda',
+    return Column(
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Text(
+            'Buscar Cursos',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-        ],
-      ),
+        ),
+        Expanded(
+          child: ListView(
+            padding: const EdgeInsets.all(16.0),
+            children: List.generate(10, (index) {
+              return Card(
+                child: ListTile(
+                  title: Text('Curso ${index + 1}'),
+                  subtitle: Text('Descripción del curso ${index + 1}'),
+                  leading: Icon(Icons.book),
+                  onTap: () {
+                    // Acción al hacer clic
+                  },
+                ),
+              );
+            }),
+          ),
+        ),
+      ],
     );
   }
 
@@ -150,9 +165,18 @@ class _LandingPageState extends State<LandingPage> {
         children: [
           Icon(Icons.person, size: 100, color: Colors.blue),
           SizedBox(height: 20),
-          Text(
+          const Text(
             'Página de Perfil',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 20),
+          const Text(
+            'Nombre de Usuario',
+            style: TextStyle(fontSize: 18),
+          ),
+          const Text(
+            'correo@ejemplo.com',
+            style: TextStyle(fontSize: 16),
           ),
         ],
       ),
